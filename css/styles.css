@@ -1,0 +1,86 @@
+
+#top_img {
+    width: 100%;
+    overflow: hidden;
+}
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 25px 0px;
+    list-style: none;
+}
+
+.sidebar-nav a {
+    font-size: 22px;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+    background: #fff;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #0099FF;
+}
+
+.profiles div {
+    padding: 10px;
+}
+
+.profiles p {
+    padding: 0px;
+    text-align: center;
+}
+
+.profiles img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+.profiles img:hover {
+    opacity: 0.5;
+}
+
+#content {
+    padding-top: 20px;
+}
+
+iframe {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.picked {
+    color: #000066 !important;
+}
+
+#companylogos img {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin-left: 0;
+    margin-right: auto;
+    padding: 20px;
+}
+
+#twitter-widget {
+    width: 100% !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, div, a {
+    font-family: "Arial" !important;
+}
+
