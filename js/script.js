@@ -1,21 +1,8 @@
+
+
 $(document).ready(function () {
-
-    // Get the sub page we want to load
-    var id = location.hash;
-    var id_with_hash = id;
-    if (id) {
-        // Remove the hash prefix
-        id = id.substr(1);
-        var page = id.concat(".html");
-        $("#content").load(page);
-    } else {
-        // Go to the home page
-        id_with_hash = "#home";
-        $("#content").load("home.html");
-    }
-    // Mark the correct section on the sidebar
-        $(id_with_hash).addClass("picked");
-
+    // Load the correct page
+    move();
 
     $(".sidebar-nav a").click(function () {
         // Ajax load new page
@@ -26,18 +13,18 @@ $(document).ready(function () {
         $(".sidebar-nav a").removeClass("picked");
         $(this).addClass("picked");
         // Store current scroll position so we don't get jumping behaviour
-        var yScroll = document.body.scrollTop;
+        var yScroll = $(window).scrollTop();
         window.location.hash = id;
-        document.body.scrollTop = yScroll;
+        $(window).scrollTop(yScroll);
     });
 
     // So we have the clicky hand for the side menu bar tabs
     $(".sidebar-nav a").mouseover(function () {
-        $(this).css("cursor", "pointer");   
+        $(this).css("cursor", "pointer");
     });
-    
+
     // So we have the clicky hand for the lecture collapsables
-    $("body").on("mouseover", ".panel-title a", function() {
+    $("body").on("mouseover", ".panel-title a", function () {
         $(this).css("cursor", "pointer");
     });
 
@@ -98,13 +85,37 @@ $(document).ready(function () {
         }
         window.open(addr);
     });
-    
+
     // Make it obvious when the collapsables are open and closed
-    $("body").on("click", "h4.panel-title", function(){
+    $("body").on("click", "h4.panel-title a", function () {
         $(this).find(".glyphicon").toggleClass("glyphicon-menu-right");
         $(this).find(".glyphicon").toggleClass("glyphicon-menu-down");
     });
+
+    $(window).on("hashchange", move);
 });
+
+function move() {
+    // Get the sub page we want to load
+    var id = location.hash;
+    var id_with_hash = id;
+    if (id) {
+        // Remove the hash prefix
+        id = id.substr(1);
+        var page = id.concat(".html");
+        $("#content").load(page);
+    } else {
+        // Go to the home page
+        id_with_hash = "#home";
+        $("#content").load("home.html");
+    }
+
+    // Remove the current selected sidebar element
+    $(".sidebar-nav a").removeClass("picked");
+    // Mark the correct section on the sidebar
+    $(id_with_hash).addClass("picked");
+}
+
 
 
 
