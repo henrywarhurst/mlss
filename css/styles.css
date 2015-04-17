@@ -84,3 +84,15 @@ h1, h2, h3, h4, h5, h6, p, div, a {
     font-family: "Arial" !important;
 }
 
+.mlss-gallery img {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+}
+
+.mlss-gallery img:hover {
+    opacity: 0.5;
+}
+
+
+
